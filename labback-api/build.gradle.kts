@@ -24,7 +24,6 @@ dependencies {
     implementation      (libs.http4k.contract)
     implementation      (libs.http4k.server.undertow)
     implementation      (libs.http4k.format.jackson)
-    implementation      (libs.http4k.format.kotlinxJson)
 
     // Testing
     testImplementation  (libs.junit.core)

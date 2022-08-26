@@ -1,0 +1,69 @@
+# Misc
+.cache
+.DS_Store
+devkeystore.store
+userkeystore.store
+weblab.pid
+nohup.out
+
+
+# Eclipse
+.metadata
+.classpath
+.project
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.factorypath
+.recommenders/
+.apt_generated/
+.apt_generated_test/
+
+
+# Intellij
+.idea/
+!.idea/icon.svg
+!.idea/icon_dark.svg
+*.iws
+out/
+*.iml
+*.ipr
+
+
+# Java
+*.class
+*.log
+*.jar
+*.war
+*.nar
+*.ear
+
+# Maven
+target/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Gradle
+.gradle
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+**/build/

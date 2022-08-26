@@ -1,0 +1,48 @@
+[versions]
+# Dependencies
+slf4j                           = "1.7.36"
+logback                         = "1.2.11"
+junit                           = "5.8.2"
+awaitility                      = "4.2.0"
+
+
+
+[plugins]
+shadow                          = { id = "com.github.johnrengelman.shadow",                                 version = "7.1.2" }
+gitversion                      = { id = "com.palantir.git-version",                                        version = "0.15.0" }
+testlogger                      = { id = "com.adarshr.test-logger",                                         version = "3.2.0" }
+versions                        = { id = "com.github.ben-manes.versions",                                   version = "0.42.0" }
+
+
+[libraries]
+# Logging
+slf4j-api                       = { module = "org.slf4j:slf4j-api",                                         version.ref = "slf4j" }
+slf4j-jdk14                     = { module = "org.slf4j:slf4j-jdk14",                                       version.ref = "slf4j" }
+kotlin-logging                  = { module = "io.github.microutils:kotlin-logging-jvm",                     version = "2.1.23" }
+logback                         = { module = "ch.qos.logback:logback-classic",                              version.ref = "logback" }
+logback-core                    = { module = "ch.qos.logback:logback-core",                                 version.ref = "logback" }
+
+# HTTP
+http4k-bom                      = { module = "org.http4k:http4k-bom",                                       version = "4.28.2.0" }
+http4k-core                     = { module = "org.http4k:http4k-core" }
+http4k-contract                 = { module = "org.http4k:http4k-contract" }
+http4k-client-okhttp            = { module = "org.http4k:http4k-client-okhttp" }
+http4k-format-jackson           = { module = "org.http4k:http4k-format-jackson" }
+http4k-format-kotlinxJson       = { module = "org.http4k:http4k-format-kotlinx-serialization" }
+http4k-jsonrpc                  = { module = "org.http4k:http4k-jsonrpc" }
+http4k-metrics-micrometer       = { module = "org.http4k:http4k-metrics-micrometer" }
+http4k-multipart                = { module = "org.http4k:http4k-multipart" }
+http4k-server-undertow          = { module = "org.http4k:http4k-server-undertow" }
+http4k-template-handlebars      = { module = "org.http4k:http4k-template-handlebars" }
+http4k-testing-approval         = { module = "org.http4k:http4k-testing-approval" }
+http4k-testing-chaos            = { module = "org.http4k:http4k-testing-chaos" }
+http4k-testing-hamkrest         = { module = "org.http4k:http4k-testing-hamkrest" }
+http4k-testing-servirtium       = { module = "org.http4k:http4k-testing-servirtium" }
+
+# Testing
+junit-core                      = { module = "org.junit.jupiter:junit-jupiter",                             version.ref = "junit" }
+junit-api                       = { module = "org.junit.jupiter:junit-jupiter-api",                         version.ref = "junit" }
+junit-engine                    = { module = "org.junit.jupiter:junit-jupiter-engine",                      version.ref = "junit" }
+junit-params                    = { module = "org.junit.jupiter:junit-jupiter-params",                      version.ref = "junit" }
+awaitility-core                 = { module = "org.awaitility:awaitility",                                   version.ref = "awaitility" }
+awaitility-kotlin               = { module = "org.awaitility:awaitility-kotlin",                            version.ref = "awaitility" }

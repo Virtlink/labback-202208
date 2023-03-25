@@ -2,6 +2,7 @@
 # Dependencies
 slf4j                           = "1.7.36"
 logback                         = "1.2.11"
+javalin                         = "5.0.0.RC0"
 junit                           = "5.8.2"
 awaitility                      = "4.2.0"
 
@@ -38,6 +39,15 @@ http4k-testing-approval         = { module = "org.http4k:http4k-testing-approval
 http4k-testing-chaos            = { module = "org.http4k:http4k-testing-chaos" }
 http4k-testing-hamkrest         = { module = "org.http4k:http4k-testing-hamkrest" }
 http4k-testing-servirtium       = { module = "org.http4k:http4k-testing-servirtium" }
+
+# HTTP Server
+javalin                         = { module = "io.javalin:javalin",                                          version.ref = "javalin" }
+javalin-testtools               = { module = "io.javalin:javalin-testtools",                                version.ref = "javalin" }
+
+# HTTP Client
+okhttp-bom                      = { module = "com.squareup.okhttp3:okhttp-bom",                             version = "4.10.0" }
+okhttp                          = { module = "com.squareup.okhttp3:okhttp" }
+okhttp-loggingInterceptor       = { module = "com.squareup.okhttp3:logging-interceptor" }
 
 # Testing
 junit-core                      = { module = "org.junit.jupiter:junit-jupiter",                             version.ref = "junit" }

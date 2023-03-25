@@ -1,5 +1,6 @@
 package nl.tudelft.labback.jobs
 
+import nl.tudelft.labback.utils.Event
 import kotlin.time.Duration
 
 
@@ -13,7 +14,7 @@ interface JobsApi {
      *
      * @return a list of jobs
      */
-    suspend fun getAll(): List<JobInfo>
+    fun getAll(): List<JobInfo>
 
     /**
      * Creates a new job and returns its data.
@@ -32,7 +33,7 @@ interface JobsApi {
      * @throws PrototypeInvalidException if the specified prototype is not valid for this job
      */
 //    @Throws(JobExistsException::class, PrototypeNotFoundException::class, PrototypeInvalidException::class)
-    suspend fun create(id: JobID, prototypeName: String?, description: JobDescription): JobInfo
+    fun create(id: JobID, prototypeName: String?, description: JobDescription): JobInfo
 
     /**
      * Gets the job with the specified ID, or returns `null` if not found.
@@ -40,7 +41,7 @@ interface JobsApi {
      * @param id the ID of the job to find
      * @return the job with the specified ID, or `null` if not found
      */
-    suspend fun get(id: JobID): JobInfo?
+    fun get(id: JobID): JobInfo?
 
     /**
      * Schedules the job with the specified ID.
@@ -55,7 +56,7 @@ interface JobsApi {
      * @throws JobNotFoundException if the job with the specified ID is not found
      */
 //    @Throws(JobNotFoundException::class)
-    suspend fun schedule(id: JobID): JobInfo
+    fun schedule(id: JobID): JobInfo
 
     /**
      * Cancels or kills the job with the specified ID.
@@ -70,7 +71,7 @@ interface JobsApi {
      * @throws JobNotFoundException if the job with the specified ID is not found
      */
 //    @Throws(JobNotFoundException::class)
-    suspend fun cancel(id: JobID): JobInfo
+    fun cancel(id: JobID): JobInfo
 
     /**
      * Deletes and disposes the job with the specified ID.
@@ -83,7 +84,7 @@ interface JobsApi {
      * @return `true` when the job was found, deleted, and disposed;
      * otherwise, `false` when the job is not found
      */
-    suspend fun dispose(id: JobID): Boolean
+    fun dispose(id: JobID): Boolean
 
     /**
      * Waits for the job with the specified ID to get to a specific state or a later state.
@@ -96,7 +97,17 @@ interface JobsApi {
      * @throws JobNotFoundException if the job with the specified ID is not found
      */
 //    @Throws(JobNotFoundException::class)
-    suspend fun await(id: JobID, state: JobState, timeout: Duration = Duration.INFINITE): JobInfo?
+    fun await(id: JobID, state: JobState, timeout: Duration = Duration.INFINITE): JobInfo?
 
+    /** Event that occurs when the job's state changes. */
+    val onJobStateChanged: Event<JobStateChangedEventArgs>
+
+    /**
+     * Event arguments for the [onJobStateChanged] event.
+     */
+    data class JobStateChangedEventArgs(
+        val id: JobID,
+        val newState: JobState,
+    )
 }
 

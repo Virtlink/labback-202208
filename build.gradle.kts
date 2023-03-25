@@ -23,6 +23,7 @@ plugins {
 }
 
 allprojects {
+    apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "com.palantir.git-version")
     apply(plugin = "com.github.ben-manes.versions")
     apply(plugin = "java-library")
@@ -92,6 +93,8 @@ allprojects {
         toolchain.languageVersion.set(JavaLanguageVersion.of(11))
         withSourcesJar()
         withJavadocJar()
+//        sourceCompatibility = JavaVersion.VERSION_11
+//        targetCompatibility = JavaVersion.VERSION_11
     }
 
     /////////////

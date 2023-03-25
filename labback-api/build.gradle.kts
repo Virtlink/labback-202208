@@ -25,6 +25,14 @@ dependencies {
     implementation      (libs.http4k.server.undertow)
     implementation      (libs.http4k.format.jackson)
 
+    // HTTP Server
+    implementation      (libs.javalin)
+    testImplementation  (libs.javalin.testtools)
+
+    // HTTP Client
+    implementation      (enforcedPlatform(libs.okhttp.bom))
+    implementation      (libs.okhttp)
+
     // Testing
     testImplementation  (libs.junit.core)
     testImplementation  (libs.junit.api)
